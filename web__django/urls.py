@@ -8,6 +8,7 @@ from django.contrib.staticfiles.views import serve
 admin.autodiscover()
 
 from webpages._SiteWide.views import load_dutils_js
+from webpages.kiosk.views import home
 
 
 urlpatterns = [
