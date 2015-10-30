@@ -183,7 +183,7 @@ DEV_SERVICE_TAGS = []
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'firestorm',
+        'NAME': 'firestorm.db',
     }
 }
 

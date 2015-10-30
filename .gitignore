@@ -6,3 +6,4 @@ out.txt
 Thumbs.db
 /static/user
 base_local.py
+*.db
