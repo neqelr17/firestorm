@@ -180,7 +180,12 @@ TEST_RUNNER = 'discover_runner.DiscoverRunner'
 
 DEV_SERVICE_TAGS = []
 
-DATABASES = {}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'firestorm',
+    }
+}
 
 try:
     from .base_local import *
