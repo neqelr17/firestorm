@@ -21,7 +21,7 @@ class Topic(models.Model):
         ('E', DEPTH_EXPERT),
     )
     depth = models.CharField(max_length=1, choices=DEPTH_CHOICES)
-    suggested_by = models.ForeignKey(User)
+    suggested_by = models.ForeignKey('User')
     suggested_date = models.DateField(default=datetime.date.today)
 
     def __unicode__(self):
@@ -81,11 +81,15 @@ class Presentation(models.Model):
     topic = models.ForeignKey(Topic)
     presenter = models.ForeignKey(User)
     when = models.DateField()
-    feedback = models.ManyToManyField(User, through='Feedback')
+    feedback = models.ManyToManyField(
+        User, related_name='presentation_feedback', through='Feedback')
 
 
 class Feedback(models.Model):
     id = models.AutoField(primary_key=True)
+    presentation = models.ForeignKey(Presentation,
+                                     related_name='feedback_presentation')
+    user = models.ForeignKey(User)
     prep_level = models.PositiveSmallIntegerField(
         default=1,
         validators=[

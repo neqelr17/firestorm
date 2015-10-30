@@ -122,6 +122,7 @@ INSTALLED_APPS = (
 
     # Site-Specific
     'webpages._SiteWide',
+    'webpages.kiosk',
 )
 
 # A sample logging configuration. The only tangible logging
