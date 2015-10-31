@@ -87,7 +87,6 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'webpages._SiteWide.logging_middleware.LoggingMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -121,8 +120,7 @@ INSTALLED_APPS = (
     'sekizai',
 
     # Site-Specific
-    'webpages._SiteWide',
-    'webpages.kiosk',
+    'firestorm',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -168,6 +166,9 @@ LOGGING = {
 }
 
 LOGIN_URL = '/accounts/login'
+AUTHENTICATION_BACKENDS = ('firestorm.backends.AutoEmailLoginBackend',)
+AUTH_USER_MODEL = 'firestorm.User'
+
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
@@ -177,7 +178,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 EMAIL_HOST = ''
 SMTP_USER = None
 SMTP_PASS = None
-TEST_RUNNER = 'discover_runner.DiscoverRunner'
 
 DEV_SERVICE_TAGS = []
 
