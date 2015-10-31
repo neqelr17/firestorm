@@ -28,7 +28,9 @@ suffice.
 ## Best Practices
 
 Several items have been agreed upon by the developers:
+
 1. We will make every effort to adhere strictly to PEP8.
+
 2. All code will be developed against a branch of an individual's fork of the
 application.  When the code is ready for merge (or feedback), a GitHub "pull-
 request" will be created to represent the desired merge.  The code will be
@@ -39,23 +41,31 @@ will be provided against that pull request or agreement for merge.
 ## Next Steps
 
 Currently, we need work done on the following items:
+
 1. Presentation/Layout.  Somebody with some design skills needs to make it
 look professional.
+
 2. Kiosk display.  We want to dynamically display the topics, ordered by
 user interest in some fashion that promotes positive discussion as to our next
 topic selection.
+
 3. Mechanisms to create/edit/list topics.
+
 4. Mechanisms to vote on topics with 2 facets: A) User interest,
 B) current skillset/desire to present on the topic.
+
 5. Some scheduling mechanism for documenting a speaker/topic/date.
+
 6. Some feedback recording mechanism for providing feedback after a
 presentation.  This also should provide some way of indicating that the user
 did not attend the meeting.  Additionally, topics should be closed for feedback
 after a certain time has lapsed (45 days?).  A user should be able to decline
 providing feedback and not be bothered again for the particular event.  A
 user should also be able to edit feedback they have historically provided.
+
 7. A mechanism for the user to be able to receive/view the feedback they have
 received.
+
 8. A user needs to be able to update their profile (first/last name) as well
 as disable their account.  Disabled accounts should not have their topic
 votes considered, however their feedback on prior meetings should be retained.
