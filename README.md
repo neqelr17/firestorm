@@ -38,6 +38,8 @@ visually inspected against obvious syntactical problems or design quality.
 Also, the code will be evaluated for consistency and PEP8 compliance.  Feedback
 will be provided against that pull request or agreement for merge.
 
+3. Every effort should be made to keep our PyLint score at or above an 8.
+
 ## Next Steps
 
 Currently, we need work done on the following items:
