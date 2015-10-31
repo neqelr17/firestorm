@@ -2,9 +2,9 @@
 from __future__ import unicode_literals
 
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.shortcuts import render
 
 
 @login_required
 def home(request):
-    return HttpResponse('Hello %s' % request.user.email)
+    return render(request, 'user/home.html', {})

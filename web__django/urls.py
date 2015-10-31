@@ -16,7 +16,6 @@ urlpatterns = [
         name='logout'),
     url(r'^accounts/login/$', login, {'template_name': 'login.html',
                                       'authentication_form': CustomAuthForm}),
-    url(r'^logout/$', logout, {'next_page': '/'}),
 
     # This is the frowned-upon way of serving static files in Django
     url(r'^static/(?P<path>.*)$', serve, {'insecure': True}),

@@ -171,6 +171,7 @@ AUTH_USER_MODEL = 'firestorm.User'
 
 
 TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
     'django.core.context_processors.static',
     'sekizai.context_processors.sekizai',
 )
