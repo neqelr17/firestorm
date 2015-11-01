@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# pylint: disable=no-member, no-init, invalid-name
 """documentation"""
 from __future__ import unicode_literals
 import datetime
@@ -47,6 +48,14 @@ class User(AbstractBaseUser):
     def full_name(self):
         if self.first_name and self.last_name:
             return "{} {}".format(self.first_name, self.last_name)
+        return self.email
+
+    def get_full_name(self):
+        return self.full_name
+
+    def get_short_name(self):
+        if self.first_name:
+            return self.first_name
         return self.email
 
 
