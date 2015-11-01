@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=unused-wildcard-import, wildcard-import
 from __future__ import unicode_literals
-# IMPORTANT NOTE!  YOU MAY NEED TO REFERENCE THIS ON A PYWINTYPES MSSQL ERROR:
-# http://stackoverflow.com/a/7766757
-import datetime
 import os
 import platform
 import sys
@@ -102,7 +99,8 @@ ROOT_URLCONF = 'web__django.urls'
 WSGI_APPLICATION = 'web__django.wsgi.application'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Put strings here, like "/home/html/django_templates" or
+    # "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     "templates",
@@ -150,7 +148,7 @@ LOGGING = {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
-        },#'file': {'level': 'DEBUG','class': 'logging.FileHandler','filename': 'log_%s.txt' % datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S_%f'),'formatter': 'verbose',},
+        },
     },
     'loggers': {
         'django.request': {
