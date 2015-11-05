@@ -1,14 +1,13 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python
 """Generic view classes for the models in the firestorm
 application.
 """
+from __future__ import unicode_literal
 
 from django.views.generic.edit import CreateView
-from myapp.models import UserManager
-from myapp.models import Topic
-from myapp.models import Interest
-from myapp.models import Presentation
-from myapp.models import Feedback
+
+from .models import UserManager, Topic, Interest, Presentation, Feedback
 
 
 class UserManagerCreate(CreateView):
@@ -36,4 +35,3 @@ class FeedbackCreate(CreateView):
     model = Feedback
     fields = ['presentation', 'received_by', 'prep_level', 'comments']
 
-# Hope these can all go in the same file!
