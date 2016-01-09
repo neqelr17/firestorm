@@ -1,2 +1,30 @@
-Hello {{ user }}.<br />
-Click <a href="{% url 'logout' %}">here</a> to log out.<br />
+<!DOCTYPE html>
+<html>
+<head>
+    <title>utah python north</title>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css"/>
+  {% if icon %}
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}{{icon}}"/>
+  {% else %}
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}images/utah_python_north_logo.jpeg"/>
+  {% endif %}
+</head>
+<body>
+    <div id="header" class="header">
+        <img src="{{ STATIC_URL }}images/utah_python_north_logo.jpeg" alt="UPN Baby!"/>
+        <h1 float="left">utah python north</h1>
+        <h5 align="right">Hello {{ user }}.<br /><a href="{% url 'logout' %}">logout</a></h5>
+    </div>
+    <div id="body" class="body">
+        <p>Put content here</p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</body>
