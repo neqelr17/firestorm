@@ -30,10 +30,47 @@ body {
 
 .header h5 {
   float: right;
+  padding: 0px;
+  margin: 0px;
+}
+
+.header h6 {
+  float: right;
+  padding: 0px;
+  margin: 0px;
 }
 
 /* Body */
 #body {
   background-color: #114;
   height: 500;
+}
+
+#content {
+  position: relative;
+  margin-top: 0px;
+  overflow: auto;
+}
+
+#left{
+  position:relative;
+  float:left;
+  width:160px;
+  font: 11px Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 10px;
+}
+
+#center {
+  margin: 0 180px 0 180px;
+  padding: 10px;
+}
+
+#right{
+  position:relative;
+  float:right;
+  width:160px;
+  font: 11px Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 10px;
 }
