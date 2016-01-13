@@ -12,10 +12,18 @@ from django.shortcuts import render
 
 
 @login_required
-def home(request):
-    """home is the main entrypoint of the user experience.
+def index(request):
+    """index is the main entrypoint of the user experience.
 
     I suspect this will ultimately have some sort of dashboard that allows
     the end-user to then make changes to the content presented to him/her.
     """
-    return render(request, 'user/home.html', {})
+    return render(request, 'user/index.html', {})
+
+@login_required
+def voting(request):
+    """voting is where people can login to regerster intererst blah blah
+
+    {mckay add stuff here}
+    """
+    return render(request, 'user/voting.html', {})

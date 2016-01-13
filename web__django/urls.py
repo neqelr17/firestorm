@@ -6,7 +6,8 @@ from django.contrib.auth.views import logout, login
 from django.contrib.staticfiles.views import serve
 
 from firestorm.views_dutils import load_dutils_js
-from firestorm.views import home
+from firestorm.views import index
+from firestorm.views import voting
 from firestorm.forms import CustomAuthForm
 
 
@@ -25,6 +26,8 @@ urlpatterns = [
         name='dutils_conf'),
 
     # These are custom to the Firestorm project
-    url(r'^$', home,
-        name='home'),
+    url(r'^$', index,
+        name='index'),
+    url(r'^voting/$', voting,
+        name='voting'),
 ]
