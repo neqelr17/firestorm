@@ -18,4 +18,11 @@ def home(request):
     I suspect this will ultimately have some sort of dashboard that allows
     the end-user to then make changes to the content presented to him/her.
     """
-    return render(request, 'user/home.html', {})
+    return render(request, 'user/index.html', {})
+
+
+def kiosk(request):
+    """kiosk is the display that will be projected on the screen, refreshing
+    with updates as others make changes.
+    """
+    return render(request, 'kiosk/framework.html', {})
