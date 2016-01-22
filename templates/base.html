@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Utah Python North</title>
+    <title>Python Utah North</title>
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css"/>
   {% if icon %}
     <link rel="icon" type="image/png" href="{{ STATIC_URL }}{{icon}}"/>
@@ -13,8 +13,7 @@
     <div id="header" class="header">
         <img src="{{ STATIC_URL }}images/utah_python_north_logo.jpeg" alt="UPN Baby!"/>
         <h1 float="left">(Project Firestorm)</h1>
-        <h5 align="right">Hello {{ user }}.</h5><br />
-        <h6 align="right"><a href="{% url 'logout' %}">logout</a></h6>
+        {% block user_pane %}{% endblock %}
     </div>
     <div id="content">
         <div id="left">
@@ -26,5 +25,5 @@
         <div id="center">
             {% block center %}{% endblock %}
         </div>
-    </div> <!-- content -->
+    </div> <!-- end content -->
 </body>
