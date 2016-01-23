@@ -1,13 +1,16 @@
 <!DOCTYPE html>
+{% load sekizai_tags %}
 <html>
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Python Utah North</title>
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css"/>
-  {% if icon %}
-    <link rel="icon" type="image/png" href="{{ STATIC_URL }}{{icon}}"/>
-  {% else %}
-    <link rel="icon" type="image/png" href="{{ STATIC_URL }}images/utah_python_north_logo.jpeg"/>
-  {% endif %}
+    {% addtoblock "css" %}<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css"/>{% endaddtoblock %}
+    {% if icon %}
+        {% addtoblock "css" %}<link rel="icon" type="image/png" href="{{ STATIC_URL }}{{icon}}"/>{% endaddtoblock %}
+    {% else %}
+        {% addtoblock "css" %}<link rel="icon" type="image/png" href="{{ STATIC_URL }}images/utah_python_north_logo.jpeg"/>{% endaddtoblock %}
+    {% endif %}
+    {% render_block "css" %}
 </head>
 <body>
     <div id="header" class="header">
@@ -26,4 +29,5 @@
             {% block center %}{% endblock %}
         </div>
     </div> <!-- end content -->
+{% render_block "js" %}
 </body>
