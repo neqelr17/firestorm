@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Python Utah North</title>
+    <title>{% block page_title %}Python Utah North{% endblock %}</title>
     {% addtoblock "css" %}<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css"/>{% endaddtoblock %}
     {% if icon %}
         {% addtoblock "css" %}<link rel="icon" type="image/png" href="{{ STATIC_URL }}{{icon}}"/>{% endaddtoblock %}
@@ -19,15 +19,19 @@
         {% block user_pane %}{% endblock %}
     </div>
     <div id="content">
-        <div id="left">
-            {% block left %}{% endblock %}
-        </div>
-        <div id="right">
-            {% block right %}{% endblock %}
-        </div>
-        <div id="center">
-            {% block center %}{% endblock %}
-        </div>
+        <table style="width:100%;">
+            <tr>
+                <td id="left" style="width:25%;">
+                    {% block left %}<p>Default left content</p>{% endblock %}
+                </td>
+                <td id="center" style="width:50%;">
+                    {% block center %}<p>Default center content</p>{% endblock %}
+                </td>
+                <td id="right" style="width:25%;">
+                    {% block right %}<p>Default right content</p>{% endblock %}
+                </td>
+            </tr>
+        </table>
     </div> <!-- end content -->
 {% render_block "js" %}
 </body>

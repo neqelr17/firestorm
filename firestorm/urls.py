@@ -3,7 +3,8 @@ from __future__ import unicode_literals
 
 from django.conf.urls import include, url
 
-from .views import home, kiosk
+from .views_user import home
+from .views_kiosk import kiosk
 
 
 urlpatterns = [

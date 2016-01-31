@@ -3,7 +3,10 @@ from __future__ import unicode_literals
 
 from django import forms
 from django.contrib.auth import authenticate, get_user_model
+from django.forms import ModelForm
 from django.utils.text import capfirst
+
+from .models import Topic
 
 
 class CustomAuthForm(forms.Form):
@@ -29,9 +32,11 @@ class CustomAuthForm(forms.Form):
 
         # Set the label for the "email" field.
         UserModel = get_user_model()
-        self.username_field = UserModel._meta.get_field(UserModel.USERNAME_FIELD)
+        self.username_field = UserModel._meta.get_field(
+            UserModel.USERNAME_FIELD)
         if self.fields['email'].label is None:
-            self.fields['email'].label = capfirst(self.username_field.verbose_name)
+            self.fields['email'].label = capfirst(
+                self.username_field.verbose_name)
 
     def clean(self):
         email = self.cleaned_data.get('email')
@@ -75,3 +80,7 @@ class CustomAuthForm(forms.Form):
         return self.user_cache
 
 
+class TopicForm(ModelForm):
+    class Meta:
+        model = Topic
+        fields = ['subject', 'description', 'depth']

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=no-member, no-init, invalid-name
-"""documentation"""
+"""This file contains the custom models and managers used within the firestorm
+project."""
 from __future__ import unicode_literals
 import datetime
 

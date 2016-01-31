@@ -1,11 +1,19 @@
 {% extends "user/user_base.html" %}
 
+{% block page_title %}User Page | {{ block.super }}{% endblock %}
+
 {% block left %}
-  <p>Put left here</p>
+  <p>Add a topic!</p>
+  <form>
+  {% csrf_token %}
+  {{ subject_create_form.as_p }}
+  <input type="submit" value="submit" />
+  </form>
 {% endblock %}
 
 {% block center %}
-  <p>Put center content here</p>
+  <p>Top: Vote on anything that you haven't voted on yet</p>
+  <p>Bottom: Alter votes on anything that you may want to change</p>
 {% endblock %}
 
 {% block right %}

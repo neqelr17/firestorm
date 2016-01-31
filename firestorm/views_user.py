@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-"""views.py represents the user-interface Pythonic logic.
+"""views_user.py represents the user-interface Pythonic logic.
 
-This is the views.py which represents the Python logic for views
+This is the views_user.py which represents the Python logic for views
 that refer specifically to a user's interaction with the application.
 Kiosk views are held in another file and do not belong in here.
 """
@@ -9,6 +9,11 @@ from __future__ import unicode_literals
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
+
+from .forms import TopicForm
+from .models import Topic
+from .mixins import AjaxableResponseMixin
 
 
 @login_required
@@ -18,11 +23,10 @@ def home(request):
     I suspect this will ultimately have some sort of dashboard that allows
     the end-user to then make changes to the content presented to him/her.
     """
-    return render(request, 'user/index.html', {})
+    context = {'subject_create_form': TopicForm()}
+    return render(request, 'user/index.html', context)
 
 
-def kiosk(request):
-    """kiosk is the display that will be projected on the screen, refreshing
-    with updates as others make changes.
-    """
-    return render(request, 'kiosk/framework.html', {})
+def TopicCreate(AjaxableResponseMixin, CreateView):
+    model = Topic
+    form_class = TopicForm
