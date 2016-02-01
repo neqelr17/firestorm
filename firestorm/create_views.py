@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
+# pylint: disable=too-many-ancestors
 """Generic view classes for the models in the firestorm
 application.
 """
-from __future__ import unicode_literal
+from __future__ import unicode_literals
 
 from django.views.generic.edit import CreateView
 
@@ -17,8 +18,8 @@ class UserManagerCreate(CreateView):
 
 class TopicCreate(CreateView):
     model = Topic
-    fields = ['subject', 'description', 'depth', 'suggested_by', 'suggested_date',
-              'user_interest', 'user_skill_level']
+    fields = ['subject', 'description', 'depth', 'suggested_by',
+              'suggested_date', 'user_interest', 'user_skill_level']
 
 
 class InterestCreate(CreateView):
