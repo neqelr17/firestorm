@@ -8,6 +8,7 @@ Kiosk views are held in another file and do not belong in here.
 from __future__ import unicode_literals
 
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
 
@@ -23,10 +24,17 @@ def home(request):
     I suspect this will ultimately have some sort of dashboard that allows
     the end-user to then make changes to the content presented to him/her.
     """
-    context = {'subject_create_form': TopicForm()}
+    context = {'subject_create_form': TopicForm(),
+               'topics': Topic.objects.all()}
     return render(request, 'user/index.html', context)
 
 
-def TopicCreate(AjaxableResponseMixin, CreateView):
+class TopicCreate(AjaxableResponseMixin, CreateView):
     model = Topic
     form_class = TopicForm
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.suggested_by = self.request.user
+        return super(TopicCreate, self).form_valid(form)

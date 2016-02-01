@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.conf.urls import include, url
 
-from .views_user import home
+from .views_user import home, TopicCreate
 from .views_kiosk import kiosk
 
 
@@ -13,4 +13,6 @@ urlpatterns = [
         name='home'),
     url(r'^kiosk/$', kiosk,
         name='kiosk'),
+    url(r'^topic/create/$', TopicCreate.as_view(),
+        name='topic_create'),
 ]

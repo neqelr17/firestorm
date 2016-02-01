@@ -83,4 +83,4 @@ class CustomAuthForm(forms.Form):
 class TopicForm(ModelForm):
     class Meta:
         model = Topic
-        fields = ['subject', 'description', 'depth']
+        fields = ['subject', 'url', 'description', 'depth']

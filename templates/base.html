@@ -4,12 +4,15 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{% block page_title %}Python Utah North{% endblock %}</title>
-    {% addtoblock "css" %}<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css"/>{% endaddtoblock %}
+    {% addtoblock "css" %}<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" />{% endaddtoblock %}
     {% if icon %}
-        {% addtoblock "css" %}<link rel="icon" type="image/png" href="{{ STATIC_URL }}{{icon}}"/>{% endaddtoblock %}
+        {% addtoblock "css" %}<link rel="icon" type="image/png" href="{{ STATIC_URL }}{{icon}}" />{% endaddtoblock %}
     {% else %}
-        {% addtoblock "css" %}<link rel="icon" type="image/png" href="{{ STATIC_URL }}images/utah_python_north_logo.jpeg"/>{% endaddtoblock %}
+        {% addtoblock "css" %}<link rel="icon" type="image/png" href="{{ STATIC_URL }}images/utah_python_north_logo.jpeg" />{% endaddtoblock %}
     {% endif %}
+    {% addtoblock "js" %}<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-2.1.4.min.js"></script>{% endaddtoblock %}
+    {% addtoblock "js" %}<script type="text/javascript" src="{{ STATIC_URL }}js/dutils.js"></script>{% endaddtoblock %}
+    {% addtoblock "js" %}<script type="text/javascript" src="{% url 'dutils_conf' %}"></script>{% endaddtoblock %}
     {% render_block "css" %}
 </head>
 <body>

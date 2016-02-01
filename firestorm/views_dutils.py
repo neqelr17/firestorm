@@ -23,11 +23,12 @@ RE_ARG = re.compile(r"(\(.*?\))")
 def load_dutils_js(request):
     js_patterns = OrderedDict()
     handle_url_module(js_patterns, settings.ROOT_URLCONF)
-    with StringIO() as f_handle:
-        f_handle.write("dutils.conf.urls = ")
-        json.dump(js_patterns, f_handle)
-        f_handle.write(';')
-        contents = f_handle.getvalue()
+    f_handle = StringIO()
+    f_handle.write("dutils.conf.urls = ")
+    json.dump(js_patterns, f_handle)
+    f_handle.write(';')
+    contents = f_handle.getvalue()
+    f_handle.close()
     return HttpResponse(content=contents, content_type="text/javascript")
 
 
