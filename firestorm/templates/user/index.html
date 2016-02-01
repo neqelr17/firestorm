@@ -14,11 +14,14 @@
 {% endblock %}
 
 {% block center %}
-{% for topic in topics %}
-  {{ topic }}<br />
-{% endfor %}
   <p>Top: Vote on anything that you haven't voted on yet</p>
+  {% for topic in topics_unvoted %}
+    {{ topic }}<br />
+  {% endfor %}
   <p>Bottom: Alter votes on anything that you may want to change</p>
+  {% for vote_item in vote_data %}
+    {{ vote_item }}<br />
+  {% endfor %}
 {% endblock %}
 
 {% block right %}

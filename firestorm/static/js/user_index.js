@@ -7,6 +7,10 @@ function add_topic_clicked() {
     dataType: 'json', // what type of data do we expect back from the server
     encode: true
   })
+  // The query failed.  Data should contain the error stuff.
+  .fail(function(data) {
+    alert(JSON.stringify(data));
+  })
   // use the success callback to trigger a page reload
   .success(function(data) {
     location.reload(true); // true forces the reload from server
