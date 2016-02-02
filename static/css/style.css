@@ -52,10 +52,7 @@ body {
   overflow: auto;
 }
 
-#left{
-  position:relative;
-  float:left;
-  width:160px;
+#left {
   font: 11px Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 10px;
@@ -66,11 +63,17 @@ body {
   padding: 10px;
 }
 
-#right{
-  position:relative;
-  float:right;
+#right {
   width:160px;
   font: 11px Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 10px;
+}
+
+#left textarea {
+  width: 140px;
+}
+
+td {
+  vertical-align: top;
 }

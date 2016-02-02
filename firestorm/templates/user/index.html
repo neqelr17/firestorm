@@ -1,13 +1,29 @@
 {% extends "user/user_base.html" %}
+{% load sekizai_tags %}
+
+{% block page_title %}User Page | {{ block.super }}{% endblock %}
 
 {% block left %}
-  <p>Put left here</p>
+{% addtoblock "js" %}<script type="text/javascript" src="{{ STATIC_URL }}js/user_index.js"></script>{% endaddtoblock %}
+  <p>Add a topic!</p>
+  <form id="topic_create_form">
+    {% csrf_token %}
+    {{ subject_create_form.as_p }}
+    <input type="button" onclick="add_topic_clicked();" value="submit" />
+  </form>
 {% endblock %}
 
 {% block center %}
-  <p>Put center content here</p>
+  <p>Top: Vote on anything that you haven't voted on yet</p>
+  {% for topic in topics_unvoted %}
+    {{ topic }}<br />
+  {% endfor %}
+  <p>Bottom: Alter votes on anything that you may want to change</p>
+  {% for vote_item in vote_data %}
+    {{ vote_item }}<br />
+  {% endfor %}
 {% endblock %}
 
 {% block right %}
-  <p>Put right here</p>
+  <p>{% lorem 3 p %}</p>
 {% endblock %}

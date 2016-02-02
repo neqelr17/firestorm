@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=no-member, no-init, invalid-name
-"""documentation"""
+"""This file contains the custom models and managers used within the firestorm
+project."""
 from __future__ import unicode_literals
 import datetime
 
@@ -63,6 +64,7 @@ class Topic(models.Model):
     """docs"""
     id = models.AutoField(primary_key=True)
     subject = models.CharField(max_length=50)
+    url = models.URLField(blank=True)
     description = models.TextField()
     DEPTH_BEGINNER = 'Beginner'
     DEPTH_INTERMEDIATE = 'Intermediate'

@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.conf.urls import include, url
+from django.conf.urls import url
 
-from .views import home, kiosk
+from .views_user import home, TopicCreate
+from .views_kiosk import kiosk
 
 
 urlpatterns = [
@@ -12,4 +13,6 @@ urlpatterns = [
         name='home'),
     url(r'^kiosk/$', kiosk,
         name='kiosk'),
+    url(r'^topic/create/$', TopicCreate.as_view(),
+        name='topic_create'),
 ]

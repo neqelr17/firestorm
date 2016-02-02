@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 
+{% block page_title %}Kiosk Page | {{ block.super }}{% endblock %}
+
 {% block left %}
   <p>Kiosk Left Panel</p>
 {% endblock %}
 
 {% block center %}
-  <p>Kiosk Center Panel</p>
+  <p>This is a list of topics and their scores.</p>
+  <p>For now, we'll just auto-refresh the entire page every 30s.  Later, we'll ajax that up a bit to ease up the user experience and lighten the
+  server load.</p>
+  {% include 'kiosk/score_page.html' %}
 {% endblock %}
 
 {% block right %}

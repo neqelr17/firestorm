@@ -5,8 +5,8 @@ from django.conf.urls import include, url
 from django.contrib.auth.views import logout, login
 from django.contrib.staticfiles.views import serve
 
-from firestorm.forms import CustomAuthForm
-from firestorm.views_dutils import load_dutils_js
+from .CustomAuth import CustomAuthForm
+from .views_dutils import load_dutils_js
 
 
 urlpatterns = [
