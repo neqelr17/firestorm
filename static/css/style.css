@@ -77,3 +77,21 @@ body {
 td {
   vertical-align: top;
 }
+
+.kiosk {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.kiosk tr {
+  border: thin solid black;
+  
+}
+
+.kiosk td {
+  padding: 1ex;
+}
+
+.kiosk .topic_score {
+  text-align: right;
+}

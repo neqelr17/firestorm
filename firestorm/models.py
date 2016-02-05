@@ -77,38 +77,31 @@ class Topic(models.Model):
     depth = models.CharField(max_length=1, choices=DEPTH_CHOICES)
     suggested_by = models.ForeignKey('User')
     suggested_date = models.DateField(default=datetime.date.today)
-    user_interest = models.ManyToManyField(User,
-                                           related_name='topic_interest',
-                                           through='Interest')
-    user_skill_level = models.ManyToManyField(
-        User, related_name='topic_skill_level', through='SkillLevel')
+    user_prefs = models.ManyToManyField(User,
+                                        related_name='topic_prefs',
+                                        through='UserPreferences')
 
     def __unicode__(self):
         """useful for debugging..  actually see what the instance is"""
         return self.subject
 
 
-class Interest(models.Model):
-    """doc"""
+class UserPreferences(models.Model):
+    """UserPreferences is a "through" table for the topic/user combination.
+    This table has additional fields called users_topic_interest_level which
+    contains how interested a user is in receiving this information as a
+    presentation.
+    The table also has a field called users_current_skill_level which documents
+    how good this person might be at presenting on this topic.
+    """
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User)
     topic = models.ForeignKey(Topic)
-    level = models.PositiveSmallIntegerField(null=True)
+    users_topic_interest_level = models.PositiveSmallIntegerField()
+    users_current_skill_level = models.PositiveSmallIntegerField()
 
     def __unicode__(self):
-        return "{}'s interest in {}".format(self.user, self.topic)
-
-
-class SkillLevel(models.Model):
-    """doc"""
-    id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User)
-    topic = models.ForeignKey(Topic)
-    level = models.PositiveSmallIntegerField(null=True)
-
-    def __unicode__(self):
-        return "{} aptitude of {} is {}".format(
-            self.user, self.topic, self.level)
+        return "{}'s preferences in {}".format(self.user, self.topic)
 
 
 class Presentation(models.Model):
