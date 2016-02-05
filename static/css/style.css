@@ -77,3 +77,11 @@ body {
 td {
   vertical-align: top;
 }
+
+.kiosk {
+  width: 100%;
+}
+
+.kiosk .topic_score {
+  text-align: right;
+}
