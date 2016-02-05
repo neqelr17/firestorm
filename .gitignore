@@ -7,3 +7,4 @@ Thumbs.db
 base_local.py
 *.db
 *.wpr
+.idea
