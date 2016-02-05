@@ -4,6 +4,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{% block page_title %}Python Utah North{% endblock %}</title>
+    {% render_block 'page_head' %}
     {% addtoblock "css" %}<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" />{% endaddtoblock %}
     {% if icon %}
         {% addtoblock "css" %}<link rel="icon" type="image/png" href="{{ STATIC_URL }}{{icon}}" />{% endaddtoblock %}

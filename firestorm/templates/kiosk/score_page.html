@@ -1,7 +1,12 @@
-<table>
+{% load sekizai_tags %}
+{% addtoblock 'page_head' %}
+    <meta http-equiv="refresh" content=5>
+{% endaddtoblock %}
+<table class='kiosk'>
 {% for topic in topics %}
     <tr>
-        <td>{{ topic }}</td>
+        <td class='topic_name'><a href="{{ topic.url }}">{{ topic }}&mdash;{{ topic.get_depth_display }}</a></td>
+        <td class='topic_score'>20000</td>
     </tr>
 {% endfor %}
 </table>

@@ -10,9 +10,15 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 
+from .models import Topic
+
 
 def kiosk(request):
     """kiosk is the display that will be projected on the screen, refreshing
     with updates as others make changes.
     """
-    return render(request, 'kiosk/framework.html', {})
+    topics = Topic.objects.all()
+    return render(request, 'kiosk/framework.html', {
+        'topics':topics    
+    })
+    
