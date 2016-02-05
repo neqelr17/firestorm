@@ -13,7 +13,7 @@ from django.shortcuts import render
 from django.views.generic.edit import CreateView
 
 from .forms import TopicForm
-from .models import Topic, Interest
+from .models import Topic, UserPreferences
 from .mixins import AjaxableResponseMixin
 
 
@@ -24,8 +24,8 @@ def home(request):
     I suspect this will ultimately have some sort of dashboard that allows
     the end-user to then make changes to the content presented to him/her.
     """
-    topics_unvoted = Topic.objects.exclude(user_interest__exact=request.user)
-    vote_data = Interest.objects.filter(user__exact=request.user)
+    topics_unvoted = Topic.objects.exclude(user_prefs__exact=request.user)
+    vote_data = UserPreferences.objects.filter(user__exact=request.user)
     context = {'subject_create_form': TopicForm(),
                'topics_unvoted': topics_unvoted,
                'vote_data': vote_data}
